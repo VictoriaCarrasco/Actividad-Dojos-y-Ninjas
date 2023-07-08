@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for( 'static', filename='/css/styles.css' ) }}" >
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <title> Dojos </title>
+    </head>
+    <body>
+        <div class="container_principal">
+            <div class="seccion_izquierda">
+                <h1> Nuevo Dojo </h1>
+                <form method="POST" action="/nuevo/dojo">
+                    <div>
+                        <label for="nombre">
+                            Nombre:
+                        </label>
+                        <input id="nombre" name="nombre" >
+                    </div>
+                    <button class="btn btn-outline-warning" type="submit">
+                        Crear
+                    </button>
+                </form>
+            </div>
+            <div class="seccion_derecha">
+                <h1>
+                    Todos los dojos
+                </h1>
+                <div class="dojos">
+                    {% for dojo in lista_dojos %}
+                    <p>
+                        <a class="btn btn-info" href="/dojo/{{dojo.id}}"> {{dojo.nombre}} </a>
+                    </p>
+                    {% endfor %}
+                </div>
+                <div>
+                    <a href="/formulario/ninja"> Agregar Ninja </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

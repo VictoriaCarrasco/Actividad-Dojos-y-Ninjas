@@ -1,0 +1,20 @@
+.container_principal{
+    display:flex;
+    flex-direction: row;
+    border: 1px solid black 
+}
+
+.seccion_izquierda{
+    flex: 1 ;
+    padding: 70px;
+}
+
+.seccion_derecha{
+    flex:1;
+    padding: 70px;
+}
+
+.container_dojos{
+    border: 1px solid black;
+    padding: 10px;
+}

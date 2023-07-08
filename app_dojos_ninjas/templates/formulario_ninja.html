@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for( 'static', filename='/css/styles3.css' ) }}" >
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <title> Agregar Ninja </title>
+    </head>
+    <body>
+        <h1>
+            Agregar nuevo ninja
+        </h1>
+        <form action="/nuevo/ninja" method="POST">
+            <div >
+                <label for="dojo_id">
+                    Dojo:
+                </label>
+                <select name="dojo_id" id="dojo_id">
+                    {% for dojo in lista_dojos: %}
+                    <option value="{{dojo.id}}"> {{dojo.nombre}} </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="nombre">
+                    Nombre:
+                </label>
+                <input type="text" id="nombre" name="nombre" >
+            </div>
+            <div>
+                <label for="apellido">
+                    Apellido:
+                </label>
+                <input type="text" id="apellido" name="apellido" >
+            </div>
+            <div>
+                <label for="edad">
+                    Edad:
+                </label>
+                <input class="inputedad" type="number" id="edad" name="edad" >
+            </div>
+            <button type="button" class="btn btn-info" type="submit">
+                Crear
+            </button>
+        </form>
+        <div>
+            <a href="/dojos"> Volver al inicio </a>
+        </div>
+    </body>
+</html>
